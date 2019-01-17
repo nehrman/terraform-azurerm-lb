@@ -22,7 +22,7 @@ variable "tf_az_lb_type" {
 
 variable "tf_az_pubip_address_alloc" {
   description = "Define which type of Public IP address Allocation will be used. Valid options are Static, Dynamic."
-  default     = "static"
+  default     = "Static"
 }
 
 variable "tf_az_ft_name" {
