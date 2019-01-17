@@ -29,7 +29,15 @@ variable "tf_az_ft_name" {
   description = "Define the name of Frontend IP Configuration"
 }
 
+variable "tf_az_lb_probes_protocol" {
+  description = ""
+}
+
 variable "tf_az_lb_probes_port" {
+  description = ""
+}
+
+variable "tf_az_lb_probes_path" {
   description = ""
 }
 
