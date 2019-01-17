@@ -1,11 +1,11 @@
 # Create Public IP Address for the Load Balancer
 resource "azurerm_public_ip" "lb" {
-  count                        = "${var.tf_az_lb_type == "public" ? 1 : 0}"
-  name                         = "${var.tf_az_env}-${var.tf_az_name}-pubip"
-  resource_group_name          = "${var.tf_az_rg_name}"
-  location                     = "${var.tf_az_location}"
-  allocation_method = "${var.tf_az_pubip_address_alloc}"
-  tags                         = "${var.tf_az_tags}"
+  count               = "${var.tf_az_lb_type == "public" ? 1 : 0}"
+  name                = "${var.tf_az_env}-${var.tf_az_name}-pubip"
+  resource_group_name = "${var.tf_az_rg_name}"
+  location            = "${var.tf_az_location}"
+  allocation_method   = "${var.tf_az_pubip_address_alloc}"
+  tags                = "${var.tf_az_tags}"
 }
 
 # create and configure Azure Load Balancer 
@@ -26,7 +26,9 @@ resource "azurerm_lb_probe" "lb" {
   name                = "${var.tf_az_name}-${var.tf_az_lb_probes_port}-probe"
   resource_group_name = "${var.tf_az_rg_name}"
   loadbalancer_id     = "${azurerm_lb.lb.id}"
+  protocol            = "${var.tf_az_lb_probes_protocol}"
   port                = "${var.tf_az_lb_probes_port}"
+  request_path        = "${var.tf_az_lb_probes_path * (var.tf_az_lb_probes_protocol == "http" ? 1 : 0)}"
   number_of_probes    = "${var.tf_az_lb_nb_probes}"
 }
 
@@ -40,7 +42,7 @@ resource "azurerm_lb_rule" "lb" {
   frontend_ip_configuration_name = "${var.tf_az_ft_name}"
   probe_id                       = "${azurerm_lb_probe.lb.id}"
   backend_address_pool_id        = "${azurerm_lb_backend_address_pool.lb.id}"
-  depends_on                     = ["azurerm_lb_probe.lb","azurerm_lb_backend_address_pool.lb"]
+  depends_on                     = ["azurerm_lb_probe.lb", "azurerm_lb_backend_address_pool.lb"]
 }
 
 resource "azurerm_lb_backend_address_pool" "lb" {
