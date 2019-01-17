@@ -1,11 +1,11 @@
 # Create Public IP Address for the Load Balancer
 resource "azurerm_public_ip" "lb" {
-  count                        = "${var.tf_az_lb_type == "public" ? 1 : 0}"
-  name                         = "${var.tf_az_env}-${var.tf_az_name}-pubip"
-  resource_group_name          = "${var.tf_az_rg_name}"
-  location                     = "${var.tf_az_location}"
-  allocation_method = "${var.tf_az_pubip_address_alloc}"
-  tags                         = "${var.tf_az_tags}"
+  count               = "${var.tf_az_lb_type == "public" ? 1 : 0}"
+  name                = "${var.tf_az_env}-${var.tf_az_name}-pubip"
+  resource_group_name = "${var.tf_az_rg_name}"
+  location            = "${var.tf_az_location}"
+  allocation_method   = "${var.tf_az_pubip_address_alloc}"
+  tags                = "${var.tf_az_tags}"
 }
 
 # create and configure Azure Load Balancer 
