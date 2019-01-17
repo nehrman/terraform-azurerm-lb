@@ -4,7 +4,7 @@ resource "azurerm_public_ip" "lb" {
   name                         = "${var.tf_az_env}-${var.tf_az_name}-pubip"
   resource_group_name          = "${var.tf_az_rg_name}"
   location                     = "${var.tf_az_location}"
-  public_ip_address_allocation = "${var.tf_az_pubip_address_alloc}"
+  allocation_method = "${var.tf_az_pubip_address_alloc}"
   tags                         = "${var.tf_az_tags}"
 }
 
