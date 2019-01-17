@@ -28,7 +28,7 @@ resource "azurerm_lb_probe" "lb" {
   loadbalancer_id     = "${azurerm_lb.lb.id}"
   protocol            = "${var.tf_az_lb_probes_protocol}"
   port                = "${var.tf_az_lb_probes_port}"
-  request_path        = "${var.tf_az_lb_probes_path * (var.tf_az_lb_probes_protocol == "http" ? 1 : 0)}"
+  request_path        = "${var.tf_az_lb_probes_path}"
   number_of_probes    = "${var.tf_az_lb_nb_probes}"
 }
 
