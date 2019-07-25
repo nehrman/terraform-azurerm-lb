@@ -18,7 +18,7 @@ resource "azurerm_lb" "lb" {
 
   frontend_ip_configuration {
     name                 = "${var.tf_az_ft_name}"
-    public_ip_address_id = "${azurerm_public_ip.lb.id}"
+    public_ip_address_id = "${azurerm_public_ip.lb.id[0]}"
   }
 }
 
