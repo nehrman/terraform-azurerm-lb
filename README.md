@@ -1,4 +1,4 @@
-# Azure Virtual Machine Module
+# Azure Load Balance Module 
 
 A Terraform module which creates Load Balancer on Azure with the following characteristics:
 - Ability to decide if it is a **Public** or **Private** Load Balancer
