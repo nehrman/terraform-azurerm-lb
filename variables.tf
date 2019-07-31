@@ -41,7 +41,7 @@ variable "tf_az_lb_probes_port" {
 
 variable "tf_az_lb_probes_path" {
   description = "Specifiers the URI used for requesting health status from the backend endpoint"
-  default "/"
+  default = "/"
 }
 
 variable "tf_az_lb_nb_probes" {
