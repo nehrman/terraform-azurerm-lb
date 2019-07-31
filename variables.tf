@@ -70,10 +70,12 @@ variable "tf_az_tags" {
 
 variable "tf_az_subnet_id" {
   description = "Define Subnet that will be used for NIC configuration"
+  default     = ""
 }
 
 variable "tf_az_ft_priv_ip_addr" {
   description = "Define the Private IP Address that will be used for the Front End "
+  default     = ""
 }
 
 variable "tf_az_ft_priv_ip_addr_alloc" {
