@@ -80,5 +80,5 @@ variable "tf_az_ft_priv_ip_addr" {
 
 variable "tf_az_ft_priv_ip_addr_alloc" {
   description = "Speicifies how the private Ip address will be allocated"
-  default     = "static"
+  default     = "Static"
 }
