@@ -30,34 +30,53 @@ variable "tf_az_ft_name" {
 }
 
 variable "tf_az_lb_probes_protocol" {
-  description = ""
+  description = "Specifies the protocol of the end point."
+  default = "Http"
 }
 
 variable "tf_az_lb_probes_port" {
-  description = ""
+  description = "Specifies the port on which the Probe queries the backend endpoint"
+  default = "80"
 }
 
 variable "tf_az_lb_probes_path" {
-  description = ""
+  description = "Specifiers the URI used for requesting health status from the backend endpoint"
+  default "/"
 }
 
 variable "tf_az_lb_nb_probes" {
-  description = ""
+  description = "Specifies the number of failed probe attempts after which the backend endpoint is removed from rotation"
+  default = "2"
 }
 
 variable "tf_az_lb_rule_proto" {
-  description = ""
+  description = "Specifies the transport protocol for the external endpoint."
+  default = "Tcp"
 }
 
 variable "tf_az_lb_rule_ft_port" {
-  description = ""
+  description = "Specifies the port for the external endpoint"
+  default = "80"
 }
 
 variable "tf_az_lb_rule_bck_port" {
-  description = ""
+  description = "Specifies the port used for internal connections on the endpoint"
 }
 
 variable "tf_az_tags" {
   description = "The tags to associate with your network and subnets."
   type        = "map"
+}
+
+variable "tf_az_subnet_id" {
+  description = "Define Subnet that will be used for NIC configuration"
+}
+
+variable "tf_az_ft_priv_ip_addr" {
+  description = "Define the Private IP Address that will be used for the Front End "
+}
+
+variable "tf_az_ft_priv_ip_addr_alloc" {
+  description = "Speicifies how the private Ip address will be allocated"
+  default     = "static"
 }
