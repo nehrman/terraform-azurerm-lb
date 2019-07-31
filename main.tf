@@ -19,7 +19,7 @@ resource "azurerm_lb" "lb" {
   frontend_ip_configuration {
     name                          = "${var.tf_az_ft_name}"
     public_ip_address_id          = "${var.tf_az_lb_type == "public" ? join("",azurerm_public_ip.lb.*.id) : ""}"
-    subnet_id                     = "${var.tf_az_lb_type == "private " ? var.tf_az_ft_subnet_id : ""}"
+    subnet_id                     = "${var.tf_az_lb_type == "private " ? var.tf_az_subnet_id : ""}"
     private_ip_address            = "${var.tf_az_lb_type == "private " ? var.tf_az_ft_priv_ip_addr : ""}"
     private_ip_address_allocation = "${var.tf_az_lb_type == "private " ? var.tf_az_ft_priv_ip_addr_alloc : ""}"
   }
