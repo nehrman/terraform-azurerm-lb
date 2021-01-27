@@ -15,7 +15,7 @@ variable "tf_az_location" {
 }
 
 variable "tf_az_lb_type" {
-  type        = "string"
+  type        = string
   description = "Define which type of Load Balancer will be provided"
   default     = "public"
 }
@@ -31,32 +31,32 @@ variable "tf_az_ft_name" {
 
 variable "tf_az_lb_probes_protocol" {
   description = "Specifies the protocol of the end point."
-  default = "Http"
+  default     = "Http"
 }
 
 variable "tf_az_lb_probes_port" {
   description = "Specifies the port on which the Probe queries the backend endpoint"
-  default = "80"
+  default     = "80"
 }
 
 variable "tf_az_lb_probes_path" {
   description = "Specifiers the URI used for requesting health status from the backend endpoint"
-  default = "/"
+  default     = "/"
 }
 
 variable "tf_az_lb_nb_probes" {
   description = "Specifies the number of failed probe attempts after which the backend endpoint is removed from rotation"
-  default = "2"
+  default     = "2"
 }
 
 variable "tf_az_lb_rule_proto" {
   description = "Specifies the transport protocol for the external endpoint."
-  default = "Tcp"
+  default     = "Tcp"
 }
 
 variable "tf_az_lb_rule_ft_port" {
   description = "Specifies the port for the external endpoint"
-  default = "80"
+  default     = "80"
 }
 
 variable "tf_az_lb_rule_bck_port" {
@@ -65,7 +65,7 @@ variable "tf_az_lb_rule_bck_port" {
 
 variable "tf_az_tags" {
   description = "The tags to associate with your network and subnets."
-  type        = "map"
+  type        = map(string)
 }
 
 variable "tf_az_subnet_id" {
@@ -82,3 +82,4 @@ variable "tf_az_ft_priv_ip_addr_alloc" {
   description = "Speicifies how the private Ip address will be allocated"
   default     = "Static"
 }
+
